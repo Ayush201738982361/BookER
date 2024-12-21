@@ -1,0 +1,106 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 90px;
+  padding: 0 20px;
+  padding-top: 10px;
+}
+
+.navbar .left,
+.navbar .right {
+  display: flex;
+  gap: 70px;
+}
+
+.navbar .right {
+  margin-right: 20px;
+  gap: 40px;
+}
+
+.navbar .left {
+  margin-left: 15px;
+  height: 90px;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.navbar a {
+  color: black;
+  font-family: "Libre Baskerville", serif;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.navbar a:hover {
+  color: rgb(44, 41, 41);
+  font-family: "Libre Baskerville", serif;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.my-account .about_us {
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .navbar .left,
+  .navbar .right {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .navbar .left img {
+    max-width: 100px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .signup_button,
+  .login_button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar a {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .signup_button,
+  .login_button {
+    height: 40px;
+    font-size: 16px;
+  }
+}

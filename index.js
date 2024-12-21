@@ -8,9 +8,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-app.get("/user/signup", (req, res) => {
-  // res.sendFile(path.join(__dirname, "views", "signup.html"));
-  res.end("Men at work");
+app.get("/signup", (req, res) => {
+  res.sendFile(path.join(__dirname, "views", "signup.html"));
 });
 
 app.listen(800, () => {
