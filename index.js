@@ -3,6 +3,7 @@ const path = require("path");
 const staticRouter = require("./routes/staticRouter");
 const userRoutes = require("./routes/user");
 const { connectDB } = require("./connection");
+const port = 800;
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,6 @@ connectDB("mongodb://127.0.0.1:27017/BookER").then(() => {
 app.use("/", staticRouter);
 app.use("/user", userRoutes);
 
-app.listen(800, () => {
-  console.log(`Server is running on port 800`);
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
