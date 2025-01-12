@@ -1,17 +1,10 @@
 {
-  "name": "booker",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   },
-  "author": "Ayush S",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^4.21.2",
-    "mongoose": "^8.9.2",
-    "nodemon": "^3.1.9"
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm run dev --prefix client",   
+    "server": "npm run dev --prefix server"    
   }
 }
