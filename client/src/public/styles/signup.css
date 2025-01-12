@@ -1,0 +1,235 @@
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  height: 90px;
+  padding: 0 20px;
+  padding-top: 10px;
+}
+
+.navbar .left,
+.navbar .right {
+  display: flex;
+  gap: 70px;
+}
+
+.navbar .right {
+  margin-right: 20px;
+  gap: 40px;
+}
+
+.navbar .left {
+  margin-left: 15px;
+  height: 90px;
+  width: 40px;
+  border-radius: 10px;
+}
+
+.navbar a {
+  color: black;
+  font-family: "Libre Baskerville", serif;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.navbar a:hover {
+  color: rgb(44, 41, 41);
+  font-family: "Libre Baskerville", serif;
+  text-decoration: none;
+  font-size: 21px;
+}
+
+.my-account .about_us {
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .navbar .left,
+  .navbar .right {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .navbar .left img {
+    max-width: 100px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .signup_button,
+  .login_button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    font-size: 18px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar a {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .signup_button,
+  .login_button {
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  margin-top: 80px;
+  gap: 10px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+form h1 {
+  text-align: center;
+  font-size: 60px;
+  font-family: "Libre Baskerville", serif;
+}
+
+input {
+  height: 35px;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0 15px;
+  font-size: 16px;
+  font-family: "Libre Baskerville", serif;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+footer {
+  margin-top: 115px;
+  height: 150px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
