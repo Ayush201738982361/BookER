@@ -10,13 +10,16 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/user/login", { email, password })
+      .post("http://localhost:3000/user/login", { email, password })
       .then((result) => {
         console.log(result);
         if (result.data === "Success") {
           console.log("Login Success");
           navigate("/");
         }
+      })
+      .catch((err) => {
+        console.log("Error during login", err);
       });
   };
   return (

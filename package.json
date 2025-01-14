@@ -4,7 +4,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "client": "npm run dev --prefix client",   
-    "server": "npm run dev --prefix server"    
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server"
   }
 }
