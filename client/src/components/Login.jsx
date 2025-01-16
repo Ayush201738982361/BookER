@@ -9,18 +9,20 @@ function Login() {
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3000/user/login", { email, password })
-      .then((result) => {
-        console.log(result);
-        if (result.data === "Success") {
-          console.log("Login Success");
-          navigate("/");
-        }
-      })
-      .catch((err) => {
-        console.log("Error during login", err);
-      });
+    try {
+      axios
+        .post("http://localhost:3000/user/login", {
+          email,
+          password,
+        })
+        .then((response) => {
+          if (response.status === 201) {
+            navigate("/");
+          }
+        });
+    } catch (err) {
+      console.error(err);
+    }
   };
   return (
     <>
