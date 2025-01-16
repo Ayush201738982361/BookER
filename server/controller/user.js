@@ -14,13 +14,14 @@ async function createNewUser(req, res) {
 
 async function loginUser(req, res) {
   const { email, password } = req.body;
-  await User.findOne({ email }).then((user) => {
-    if (user.password === password) {
-      res.json("Success");
-    } else {
-      res.json("Invalid credentials");
-    }
-  });
+  const user = await User.findOne({ email });
+  if (!user) return res.status(404).json({ message: "User not found" });
+  const isValidPassword = user.matchPassword(password);
+  if (!isValidPassword) {
+    return res.status(401).json({ msg: "Invalid password" });
+  }
+  console.log("Login Successful");
+  return res.status(201).json({ message: "Login successful" });
 }
 
 module.exports = {

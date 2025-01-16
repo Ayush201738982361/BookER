@@ -40,6 +40,14 @@ userSchema.pre("save", function (next) {
   next();
 });
 
+userSchema.methods.matchPassword = function (password) {
+  const user = this;
+  const providedPassword = createHmac("sha256", user.salt)
+    .update(password)
+    .digest("hex");
+  return user.password === providedPassword;
+};
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;
