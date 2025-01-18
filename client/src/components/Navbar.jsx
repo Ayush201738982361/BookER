@@ -6,15 +6,17 @@ function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <Link to="/"> 
+        <Link to="/">
           <div className="left">
             <img src={logo} alt="error" />
           </div>
         </Link>
         <div className="right">
-          <div className="about_us">
-            <a href="#">About Us</a>
-          </div>
+          <Link to="/aboutus">
+            <div className="about_us">
+              <a>About Us</a>
+            </div>
+          </Link>
           <div className="my-account">
             <a href="#">My Account</a>
           </div>
