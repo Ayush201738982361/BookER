@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../public/styles/signup.css";
 
 function Signup() {
@@ -16,18 +18,23 @@ function Signup() {
       .post("http://localhost:3001/user/signup", { name, email, password })
       .then((response) => {
         if (response.status === 201) {
-          navigate("/");
+          toast.success("Signup Successful");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         } else {
-          console.log("Error:", response.data);
+          toast.error("Signup Failed. Please Try Again.");
         }
       })
       .catch((error) => {
-        console.log("Error:", error);
+        toast.error("User Already Exists");
+        console.log(error);
       });
   };
 
   return (
     <div className="container">
+      <ToastContainer position="top-right" autoClose={3000} />
       <form method="post" onSubmit={handleSubmit}>
         <i>
           <h1>Signup</h1>
