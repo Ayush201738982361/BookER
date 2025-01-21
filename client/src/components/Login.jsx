@@ -11,7 +11,7 @@ function Login() {
     e.preventDefault();
     try {
       axios
-        .post("http://localhost:3000/user/login", {
+        .post("http://localhost:3001/user/login", {
           email,
           password,
         })

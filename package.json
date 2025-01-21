@@ -6,5 +6,8 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm run dev --prefix client",
     "server": "npm run dev --prefix server"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7"
   }
 }

@@ -13,7 +13,7 @@ function Signup() {
     e.preventDefault();
     console.log("Form Submitted");
     axios
-      .post("http://localhost:3000/user/signup", { name, email, password })
+      .post("http://localhost:3001/user/signup", { name, email, password })
       .then((response) => {
         if (response.status === 201) {
           navigate("/");
