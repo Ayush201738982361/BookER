@@ -27,7 +27,7 @@ function Signup() {
         }
       })
       .catch((error) => {
-        toast.error("User Already Exists");
+        toast.error("User With This Email Already Exists");
         console.log(error);
       });
   };
