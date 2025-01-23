@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       axios
-        .post("http://localhost:3001/user/login", {
+        .post("http://localhost:8000/user/login", {
           email,
           password,
         })
@@ -37,7 +37,7 @@ function Login() {
     <>
       <div className="container">
         <ToastContainer position="top-right" autoClose={4000} />
-        <form action="/user/login" method="post" onSubmit={handleSubmit}>
+        <form action="/user/login" method="POST" onSubmit={handleSubmit}>
           <i>
             <h1>Login</h1>
           </i>

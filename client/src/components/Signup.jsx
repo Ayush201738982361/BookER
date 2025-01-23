@@ -15,7 +15,7 @@ function Signup() {
     e.preventDefault();
     console.log("Form Submitted");
     axios
-      .post("http://localhost:3001/user/signup", { name, email, password })
+      .post("http://localhost:8000/user/signup", { name, email, password })
       .then((response) => {
         if (response.status === 201) {
           toast.success("Signup Successful");
@@ -35,7 +35,7 @@ function Signup() {
   return (
     <div className="container">
       <ToastContainer position="top-right" autoClose={3000} />
-      <form method="post" onSubmit={handleSubmit}>
+      <form method="POST" onSubmit={handleSubmit}>
         <i>
           <h1>Signup</h1>
         </i>
