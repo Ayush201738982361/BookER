@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../public/styles/style.css";
 import cost from "../public/images/feature-images/cost-effective.jpg";
 import sell from "../public/images/feature-images/sell.jpg";
@@ -83,9 +84,11 @@ function Home() {
                   textbooks to timeless classics and bestsellers.
                 </p>
                 <div className="d-flex justify-content-center">
-                  <button type="button" className="btn btn-outline-dark">
-                    BUY
-                  </button>
+                  <Link to="/buy">
+                    <button type="button" className="btn btn-outline-dark">
+                      BUY
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -104,9 +107,11 @@ function Home() {
                   buyers looking for exactly what you have.
                 </p>
                 <div className="d-flex justify-content-center">
-                  <button type="button" className="btn btn-outline-dark">
-                    SELL
-                  </button>
+                  <Link to="/sell">
+                    <button type="button" className="btn btn-outline-dark">
+                      SELL
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

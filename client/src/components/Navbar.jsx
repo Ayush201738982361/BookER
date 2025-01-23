@@ -17,11 +17,7 @@ function Navbar() {
               <span>About Us</span>
             </div>
           </Link>
-          <Link to="/myaccount">
-            <div className="my-account">
-              <span>My Account</span>
-            </div>
-          </Link>
+
           <Link to="/signup">
             <button type="button" className="btn btn-outline-dark">
               SIGNUP

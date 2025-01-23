@@ -5,7 +5,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
-import MyAccount from "./components/MyAccount";
+import Sell from "./components/Sell";
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/myaccount" element={<MyAccount />} />
+          <Route path="/sell" element={<Sell />} />
         </Routes>
         <Footer />
       </BrowserRouter>
