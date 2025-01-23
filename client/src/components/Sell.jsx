@@ -17,7 +17,7 @@ function Sell() {
         <i>Fill This Form And List Your Books</i>
       </div>
       <div className={styles.container}>
-        <form className="inputForm">
+        <form className={styles.inputForm}>
           <input
             className={styles.input}
             placeholder="Name Of The Book"
