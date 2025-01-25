@@ -22,8 +22,8 @@ function Sell() {
             className={styles.input}
             placeholder="Name Of The Book"
             type="text"
-            id="name"
-            name="name"
+            id="book_name"
+            name="book_name"
             required
           />
 
@@ -57,10 +57,12 @@ function Sell() {
 
           <input
             className={styles.input}
-            placeholder="Seller Contact"
-            type="text"
+            placeholder="Seller Phone No."
+            type="tel"
             id="sellerContact"
             name="sellerContact"
+            pattern="[0-9]{10}"
+            maxLength="10"
             required
           />
           <button type="submit" className="btn btn-success">
