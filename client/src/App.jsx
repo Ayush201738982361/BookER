@@ -5,6 +5,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
+import Buy from "./components/Buy";
 import Sell from "./components/Sell";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/sell" element={<Sell />} />
+          <Route path="/buy" element={<Buy />} />
         </Routes>
         <Footer />
       </BrowserRouter>
