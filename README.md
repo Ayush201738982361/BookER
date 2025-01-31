@@ -21,7 +21,7 @@ Booker is a full stack web application made using the MERN stack which helps the
 
 ## Documentation
 
-- Note: Before following the given steps make sure you have downloaded Node.js and MongoDB on you system.
+- Note: Before following the given steps make sure you have downloaded Node.js and MongoDB on your system.
 To run this application on your local system , you need to clone it using the following command:
 - git clone https://github.com/Ayush201738982361/BookER.git
 
