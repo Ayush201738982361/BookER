@@ -14,25 +14,41 @@ const App = () => {
   const toggleMode = () => {
     if (mode === "dark") {
       setMode("light");
-      console.log("Mode : Light");
       return;
     }
     setMode("dark");
-    console.log("Mode : Dark");
   };
   return (
     <>
       <BrowserRouter>
         <Navbar mode={mode} toggleMode={toggleMode} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/sell" element={<Sell />} />
-          <Route path="/buy" element={<Buy />} />
+          <Route
+            path="/"
+            element={<Home mode={mode} toggleMode={toggleMode} />}
+          />
+          <Route
+            path="/signup"
+            element={<Signup mode={mode} toggleMode={toggleMode} />}
+          />
+          <Route
+            path="/login"
+            element={<Login mode={mode} toggleMode={toggleMode} />}
+          />
+          <Route
+            path="/aboutus"
+            element={<AboutUs mode={mode} toggleMode={toggleMode} />}
+          />
+          <Route
+            path="/sell"
+            element={<Sell mode={mode} toggleMode={toggleMode} />}
+          />
+          <Route
+            path="/buy"
+            element={<Buy mode={mode} toggleMode={toggleMode} />}
+          />
         </Routes>
-        <Footer />
+        <Footer mode={mode} toggleMode={toggleMode} />
       </BrowserRouter>
     </>
   );
