@@ -1,11 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import PropTypes from "prop-types";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "../public/styles/sell.module.css";
 
-function Sell() {
+function Sell(props) {
+  useEffect(() => {
+    if (props.mode === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [props.mode]);
   const [book_name, setBookName] = useState("");
   const [author, setAuthor] = useState("");
   const [price, setPrice] = useState("");
@@ -50,7 +58,11 @@ function Sell() {
           </p>
         </div>
       </div>
-      <div className={styles.listingHeading}>
+      <div
+        className={
+          props.mode === "dark" ? styles.lightHeading : styles.listingHeading
+        }
+      >
         <i>Fill This Form And List Your Books</i>
       </div>
       <div className={styles.container}>
@@ -61,6 +73,11 @@ function Sell() {
           onSubmit={handleSubmit}
         >
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             className={styles.input}
             placeholder="Name Of The Book"
             type="text"
@@ -73,6 +90,11 @@ function Sell() {
           />
 
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             className={styles.input}
             placeholder="Author Of The Book"
             type="text"
@@ -85,6 +107,11 @@ function Sell() {
           />
 
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             className={styles.input}
             placeholder="Price Of The Book"
             type="number"
@@ -98,6 +125,11 @@ function Sell() {
           />
 
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             className={styles.input}
             placeholder="Seller Name"
             type="text"
@@ -110,6 +142,11 @@ function Sell() {
           />
 
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             className={styles.input}
             placeholder="Seller Phone No."
             type="tel"
@@ -130,5 +167,9 @@ function Sell() {
     </>
   );
 }
+
+Sell.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 
 export default Sell;

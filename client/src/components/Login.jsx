@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import PropTypes from "prop-types";
 import axios from "axios";
 import "../public/styles/login.css";
 import "react-toastify/dist/ReactToastify.css";
 
-function Login() {
+function Login(props) {
+  useEffect(() => {
+    if (props.mode === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [props.mode]);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,6 +50,11 @@ function Login() {
             <h1>Login</h1>
           </i>
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             placeholder="Email"
             type="text"
             id="email"
@@ -51,6 +64,11 @@ function Login() {
           />
 
           <input
+            style={{
+              color: props.mode === "dark" ? "white" : "black",
+              borderColor: props.mode === "dark" ? "white" : "black",
+              backgroundColor: props.mode === "dark" ? "#212529" : "white",
+            }}
             placeholder="Password"
             type="password"
             id="password"
@@ -66,5 +84,9 @@ function Login() {
     </>
   );
 }
+
+Login.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 
 export default Login;

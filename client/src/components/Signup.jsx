@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import PropTypes from "prop-types";
+import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 import "../public/styles/signup.css";
 
-function Signup() {
+function Signup(props) {
+  useEffect(() => {
+    if (props.mode === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [props.mode]);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,6 +48,11 @@ function Signup() {
           <h1>Signup</h1>
         </i>
         <input
+          style={{
+            color: props.mode === "dark" ? "white" : "black",
+            borderColor: props.mode === "dark" ? "white" : "black",
+            backgroundColor: props.mode === "dark" ? "#212529" : "white",
+          }}
           placeholder="Name"
           type="text"
           id="name"
@@ -48,6 +61,11 @@ function Signup() {
           onChange={(e) => setName(e.target.value)}
         />
         <input
+          style={{
+            color: props.mode === "dark" ? "white" : "black",
+            borderColor: props.mode === "dark" ? "white" : "black",
+            backgroundColor: props.mode === "dark" ? "#212529" : "white",
+          }}
           placeholder="Email"
           type="email"
           id="email"
@@ -56,6 +74,11 @@ function Signup() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
+          style={{
+            color: props.mode === "dark" ? "white" : "black",
+            borderColor: props.mode === "dark" ? "white" : "black",
+            backgroundColor: props.mode === "dark" ? "#212529" : "white",
+          }}
           placeholder="Password"
           type="password"
           id="password"
@@ -71,4 +94,7 @@ function Signup() {
   );
 }
 
+Signup.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 export default Signup;

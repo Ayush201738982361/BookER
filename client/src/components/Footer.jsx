@@ -1,9 +1,12 @@
+import PropTypes from "prop-types";
 import "../public/styles/style.css";
 
-function Footer() {
+function Footer(props) {
   return (
     <>
-      <footer>
+      <footer
+        style={{ backgroundColor: props.mode === "dark" ? "#212529" : "white" }}
+      >
         <ul className="wrapper">
           <li className="icon facebook">
             <span className="tooltip">Facebook</span>
@@ -46,4 +49,7 @@ function Footer() {
   );
 }
 
+Footer.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 export default Footer;

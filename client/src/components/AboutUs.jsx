@@ -1,6 +1,16 @@
+import { useEffect } from "react";
+import PropTypes from "prop-types";
+
 import "../public/styles/aboutus.css";
 
-function AboutUs() {
+function AboutUs(props) {
+  useEffect(() => {
+    if (props.mode === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [props.mode]);
   return (
     <>
       <div className="hero_image">
@@ -14,9 +24,17 @@ function AboutUs() {
         </div>
       </div>
 
-      <i className="heading">Our Story</i>
+      <i
+        className="heading"
+        style={{ color: props.mode === "dark" ? "white" : "black" }}
+      >
+        Our Story
+      </i>
       <div className="our_story">
-        <p className="paragraph">
+        <p
+          className="paragraph"
+          style={{ color: props.mode === "dark" ? "white" : "black" }}
+        >
           Booker started as a small passion project during our college days. We
           wanted to solve a problem that we personally faced—finding affordable
           books and a way to give our old books a new home. What began as a
@@ -32,4 +50,7 @@ function AboutUs() {
   );
 }
 
+AboutUs.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 export default AboutUs;

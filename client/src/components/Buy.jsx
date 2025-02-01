@@ -1,9 +1,18 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import styles from "../public/styles/buy.module.css";
 
-function Buy() {
+function Buy(props) {
   const [listings, setListings] = useState([]);
+
+  useEffect(() => {
+    if (props.mode === "dark") {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [props.mode]);
 
   useEffect(() => {
     axios
@@ -43,7 +52,15 @@ function Buy() {
         >
           <ul className="list-group list-group-flush">
             {listings.map((listing) => (
-              <li className="list-group-item py-3" key={listing._id}>
+              <li
+                style={{ color: props.mode === "dark" ? "white" : "black" }}
+                className={
+                  props.mode === "light"
+                    ? "list-group-item py-3 "
+                    : "list-group-item py-3 bg-dark"
+                }
+                key={listing._id}
+              >
                 <div>Book: {listing.book_name}</div>
                 <div>Author: {listing.author}</div>
                 <div>Price: ${listing.price}</div>
@@ -58,4 +75,7 @@ function Buy() {
   );
 }
 
+Buy.propTypes = {
+  mode: PropTypes.string.isRequired,
+};
 export default Buy;
