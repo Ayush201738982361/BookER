@@ -63,7 +63,7 @@ function Buy(props) {
               >
                 <div>Book: {listing.book_name}</div>
                 <div>Author: {listing.author}</div>
-                <div>Price: ${listing.price}</div>
+                <div>Price: ₹{listing.price}</div>
                 <div>Seller: {listing.seller_name}</div>
                 <div>Contact: {listing.seller_contact}</div>
               </li>
