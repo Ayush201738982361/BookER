@@ -41,4 +41,4 @@ This will ensure that concurrently is installed in our root folder which will he
 
 Finally hit : - `npm start`
 
-To run the application (be sure to click on the front end localhost link rather than the server one's);
+To run the application (be sure to click on the front end localhost link rather than the server one).
