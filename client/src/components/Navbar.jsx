@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../public/styles/style.css";
 import logo from "../public/images/booker-logo.jpg";
+import darkLogo from "../public/images/booker-dark-logo.jpg";
 
 function Navbar(props) {
   return (
@@ -12,7 +13,11 @@ function Navbar(props) {
       >
         <Link to="/">
           <div className="left">
-            <img src={logo} alt="error" />
+            {props.mode === "dark" ? (
+              <img src={darkLogo} alt="error" />
+            ) : (
+              <img src={logo} alt="error" />
+            )}
           </div>
         </Link>
         <div className="right">
