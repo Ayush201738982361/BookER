@@ -23,32 +23,14 @@ const App = () => {
       <BrowserRouter>
         <Navbar mode={mode} toggleMode={toggleMode} />
         <Routes>
-          <Route
-            path="/"
-            element={<Home mode={mode} toggleMode={toggleMode} />}
-          />
-          <Route
-            path="/signup"
-            element={<Signup mode={mode} toggleMode={toggleMode} />}
-          />
-          <Route
-            path="/login"
-            element={<Login mode={mode} toggleMode={toggleMode} />}
-          />
-          <Route
-            path="/aboutus"
-            element={<AboutUs mode={mode} toggleMode={toggleMode} />}
-          />
-          <Route
-            path="/sell"
-            element={<Sell mode={mode} toggleMode={toggleMode} />}
-          />
-          <Route
-            path="/buy"
-            element={<Buy mode={mode} toggleMode={toggleMode} />}
-          />
+          <Route path="/" element={<Home mode={mode} />} />
+          <Route path="/signup" element={<Signup mode={mode} />} />
+          <Route path="/login" element={<Login mode={mode} />} />
+          <Route path="/aboutus" element={<AboutUs mode={mode} />} />
+          <Route path="/sell" element={<Sell mode={mode} />} />
+          <Route path="/buy" element={<Buy mode={mode} />} />
         </Routes>
-        <Footer mode={mode} toggleMode={toggleMode} />
+        <Footer mode={mode} />
       </BrowserRouter>
     </>
   );
