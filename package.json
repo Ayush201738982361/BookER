@@ -8,6 +8,7 @@
     "server": "npm run dev --prefix server"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.7"
+    "cookie-parser": "^1.4.7",
+    "nodemailer": "^6.10.0"
   }
 }

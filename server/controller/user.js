@@ -1,5 +1,14 @@
 const { model } = require("mongoose");
+const nodemailer = require("nodemailer");
 const User = require("../model/user");
+
+const transport = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "ayushnair87@gmail.com",
+    pass: "tdho ynso ixdv ppsu",
+  },
+});
 
 async function createNewUser(req, res) {
   try {
