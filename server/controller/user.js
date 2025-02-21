@@ -1,12 +1,13 @@
 const { model } = require("mongoose");
 const nodemailer = require("nodemailer");
 const User = require("../model/user");
+require("dotenv").config();
 
-const transport = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "ayushnair87@gmail.com",
-    pass: "tdho ynso ixdv ppsu",
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
   },
 });
 
