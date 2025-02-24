@@ -11,6 +11,13 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const mailOptions = {
+  from: process.env.EMAIL,
+  to: req.email,
+  subject: "Test Subject",
+  text: "Test Text",
+};
+
 async function createNewUser(req, res) {
   try {
     await User.create(req.body);
