@@ -1,6 +1,6 @@
 # Booker
 
-Booker is a full stack web application made using the MERN stack which helps the customers to buy second hand books and sell their old books
+Booker is a full stack web application made using the MERN stack which helps the customers to buy second hand books and sell their old books this amazing idea was brought forward by the greatest coder of all time george. His immense contribution to this project cannot be ignored. He is a very high IQ individual.
 ## Tech Stack
 
 **Client:** React,Bootstrap
