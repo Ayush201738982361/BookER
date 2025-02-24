@@ -4,6 +4,8 @@ const User = require("../model/user");
 require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
+  secure: true,
+  host: "smtp.gmail.com",
   service: "gmail",
   auth: {
     user: process.env.EMAIL,
@@ -11,11 +13,18 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const mailOptions = {
-  from: process.env.EMAIL,
-  to: req.email,
-  subject: "Test Subject",
-  text: "Test Text",
+const sendMail = async (to, sub, msg) => {
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: to,
+      subject: sub,
+      html: msg,
+    });
+    console.log("Email sent successfully");
+  } catch (err) {
+    console.log("Error in sending the email", err);
+  }
 };
 
 async function createNewUser(req, res) {
@@ -23,6 +32,11 @@ async function createNewUser(req, res) {
     await User.create(req.body);
     console.log(req.body);
     res.status(201).json({ message: "User created successfully" });
+    await sendMail(
+      req.body.email,
+      "Welcome to BookER",
+      `<p>Welcome to BookER , We Are Excited To Have You On Board 🎉</p>`
+    );
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error creating user" });
