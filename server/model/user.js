@@ -52,7 +52,11 @@ userSchema.statics.matchPasswordAndGenerateToken = async function (
     .update(password)
     .digest("hex");
 
-  if (user.password !== providedPassword) throw new Error("Invalid password");
+  if (user.password !== providedPassword) {
+    const error = new Error("Invalid password");
+    error.statusCode = 500;
+    throw error;
+  }
 
   const token = createNewToken(user);
   return token;
