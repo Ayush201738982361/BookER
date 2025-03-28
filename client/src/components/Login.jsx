@@ -14,33 +14,33 @@ function Login(props) {
       document.body.classList.remove("dark-mode");
     }
   }, [props.mode]);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      axios
-        .post("http://localhost:8000/user/login", {
-          email,
-          password,
-        })
-        .then((response) => {
-          if (response.status === 201) {
-            toast.success("Login Successful");
-            setTimeout(() => {
-              navigate("/");
-            }, 2000);
-          } else {
-            toast.error("Login Failed");
-            console.log("Incorrect email or password");
-          }
-        });
-    } catch (err) {
-      toast.error("Login Failed");
-      console.error(err);
-    }
+
+    axios
+      .post("http://localhost:8000/user/login", {
+        email,
+        password,
+      })
+      .then((response) => {
+        if (response.status === 201) {
+          toast.success("Login Successful");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        }
+      })
+      .catch((err) => {
+        toast.error("Invalid email or password");
+        console.error(err);
+      });
   };
+
   return (
     <>
       <div className="container">
