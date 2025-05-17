@@ -17,9 +17,11 @@ function Buy(props) {
   }, [props.mode]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     setLoading(true);
     axios
-      .get("http://localhost:8000/user/buy")
+      .get("http://localhost:8000/user/buy", { signal })
       .then((response) => {
         setListings(response.data);
         setLoading(false);
@@ -28,6 +30,11 @@ function Buy(props) {
         console.log("Error in fetching book data", error);
         setLoading(false);
       });
+
+    return () => {
+      console.log("Fetch Aborted");
+      controller.abort();
+    };
   }, []);
 
   return (
