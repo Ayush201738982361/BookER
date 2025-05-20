@@ -27,8 +27,10 @@ function Buy(props) {
         setLoading(false);
       })
       .catch((error) => {
-        console.log("Error in fetching book data", error);
-        setLoading(false);
+        if (!axios.isCancel(error)) {
+          console.log("Error in fetching book data", error);
+          setLoading(false);
+        }
       });
 
     return () => {
