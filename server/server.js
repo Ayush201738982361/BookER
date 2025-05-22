@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user");
 const { connectDB } = require("./connection");
+require("dotenv").config();
 const cors = require("cors");
 const port = 8000;
 
@@ -16,7 +17,7 @@ app.use(
   })
 );
 
-connectDB("mongodb://127.0.0.1:27017/BookER").then(() => {
+connectDB(process.env.MONGO_URL).then(() => {
   console.log("MongoDB Connected");
 });
 
