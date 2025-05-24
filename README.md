@@ -4,9 +4,9 @@ Booker is a full stack web application made using the MERN stack which helps the
 
 ## Tech Stack
 
-**Client:** React,Bootstrap
+**Client:** React.js,Bootstrap
 
-**Server:** Node, Express
+**Server:** Node.js,Express.js
 
 **Database:** Mongodb
 
