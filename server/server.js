@@ -4,7 +4,7 @@ const userRoutes = require("./routes/user");
 const { connectDB } = require("./connection");
 require("dotenv").config();
 const cors = require("cors");
-const port = 8000;
+const port = process.env.PORT;
 
 const app = express();
 app.use(cookieParser());
