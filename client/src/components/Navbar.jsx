@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../public/styles/style.css";
@@ -5,6 +7,32 @@ import logo from "../public/images/booker-logo.jpg";
 import darkLogo from "../public/images/booker-dark-logo.jpg";
 
 function Navbar(props) {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/user/me", { withCredentials: true }) // ⬅️ required for cookie auth
+      .then((res) => {
+        setUser(res.data.user);
+      })
+      .catch(() => {
+        setUser(null);
+      });
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        "http://localhost:8000/user/logout",
+        {},
+        { withCredentials: true }
+      );
+      setUser(null); // clear the user state on logout
+    } catch (err) {
+      console.log("Error Logging Out User :", err);
+    }
+  };
+
   return (
     <>
       <nav
@@ -14,9 +42,9 @@ function Navbar(props) {
         <Link to="/">
           <div className="left">
             {props.mode === "dark" ? (
-              <img src={darkLogo} alt="error" />
+              <img src={darkLogo} alt="logo" />
             ) : (
-              <img src={logo} alt="error" />
+              <img src={logo} alt="logo" />
             )}
           </div>
         </Link>
@@ -30,6 +58,7 @@ function Navbar(props) {
               </span>
             </div>
           </Link>
+
           <label className="switch">
             <input type="checkbox" onClick={props.toggleMode} />
             <span className="slider">
@@ -45,33 +74,62 @@ function Navbar(props) {
             </span>
           </label>
 
-          <Link to="/signup">
-            {props.mode === "dark" ? (
-              <button type="button" className="btn btn-outline-light">
-                SIGNUP
+          {user ? (
+            <>
+              <span
+                style={{
+                  color: props.mode === "dark" ? "white" : "black",
+                  marginRight: "10px",
+                }}
+              >
+                Hello, {user.email}
+              </span>
+              <button
+                type="button"
+                className={
+                  props.mode === "dark"
+                    ? "btn btn-outline-light"
+                    : "btn btn-outline-dark"
+                }
+                onClick={handleLogout}
+              >
+                LOGOUT
               </button>
-            ) : (
-              <button type="button" className="btn btn-outline-dark">
-                SIGNUP
-              </button>
-            )}
-          </Link>
-          <Link to="/login">
-            {props.mode === "dark" ? (
-              <button type="button" className="btn btn-outline-light">
-                LOGIN
-              </button>
-            ) : (
-              <button type="button" className="btn btn-outline-dark">
-                LOGIN
-              </button>
-            )}
-          </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/signup">
+                <button
+                  type="button"
+                  className={
+                    props.mode === "dark"
+                      ? "btn btn-outline-light"
+                      : "btn btn-outline-dark"
+                  }
+                >
+                  SIGNUP
+                </button>
+              </Link>
+              <Link to="/login">
+                <button
+                  type="button"
+                  className={
+                    props.mode === "dark"
+                      ? "btn btn-outline-light"
+                      : "btn btn-outline-dark"
+                  }
+                >
+                  LOGIN
+                </button>
+              </Link>
+            </>
+          )}
         </div>
       </nav>
     </>
   );
 }
+
 Navbar.propTypes = {
   mode: PropTypes.string.isRequired,
   toggleMode: PropTypes.func.isRequired,
