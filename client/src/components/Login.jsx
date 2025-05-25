@@ -23,10 +23,14 @@ function Login(props) {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8000/user/login", {
-        email,
-        password,
-      })
+      .post(
+        "http://localhost:8000/user/login",
+        {
+          email,
+          password,
+        },
+        { withCredentials: true }
+      )
       .then((response) => {
         if (response.status === 201) {
           toast.success("Login Successful");
@@ -45,7 +49,7 @@ function Login(props) {
     <>
       <div className="container">
         <ToastContainer position="top-right" autoClose={4000} />
-        <form action="/user/login" method="POST" onSubmit={handleSubmit}>
+        <form method="POST" onSubmit={handleSubmit}>
           <i>
             <h1>Login</h1>
           </i>
