@@ -28,7 +28,7 @@ function Signup(props) {
         if (response.status === 201) {
           toast.success("Signup Successful");
           setTimeout(() => {
-            navigate("/");
+            navigate("/login");
           }, 2000);
         } else {
           toast.error("Signup Failed. Please Try Again.");
