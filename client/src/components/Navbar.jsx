@@ -11,7 +11,7 @@ function Navbar(props) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/user/me", { withCredentials: true }) // ⬅️ required for cookie auth
+      .get("http://localhost:8000/user/me", { withCredentials: true })
       .then((res) => {
         setUser(res.data.user);
       })
@@ -27,7 +27,7 @@ function Navbar(props) {
         {},
         { withCredentials: true }
       );
-      setUser(null); // clear the user state on logout
+      setUser(null);
     } catch (err) {
       console.log("Error Logging Out User :", err);
     }
