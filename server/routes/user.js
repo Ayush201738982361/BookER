@@ -16,7 +16,6 @@ router.use(checkForAuth);
 
 router.get("/me", (req, res) => {
   res.json({ user: req.user });
-  console.log("req.user in /me", req.user);
 });
 
 module.exports = router;
