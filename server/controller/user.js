@@ -73,8 +73,13 @@ const logoutUser = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
+const sendUserInfo = (req, res) => {
+  res.json({ user: req.user });
+};
+
 module.exports = {
   createNewUser,
   loginUser,
   logoutUser,
+  sendUserInfo,
 };
