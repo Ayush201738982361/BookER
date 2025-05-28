@@ -89,6 +89,16 @@ function Signup(props) {
         <button type="submit" className="btn btn-success">
           Submit
         </button>
+        <a
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          href="/login"
+        >
+          Already Have An Account
+        </a>
       </form>
     </div>
   );
