@@ -83,6 +83,16 @@ function Login(props) {
           <button type="submit" className="btn btn-success">
             Submit
           </button>
+          <a
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+            href="/signup"
+          >
+            Do not have an account
+          </a>
         </form>
       </div>
     </>
