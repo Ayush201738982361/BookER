@@ -57,7 +57,6 @@ async function loginUser(req, res) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
     });
-    console.log("Login Successful", token);
     return res.status(201).json({ message: "Login successful" });
   } catch (error) {
     console.error(error);
