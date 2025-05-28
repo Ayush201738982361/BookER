@@ -1,7 +1,6 @@
 const { verifyToken } = require("../services/auth");
 
 function checkForAuth(req, res, next) {
-  console.log("Cookies:", req.cookies);
   const token = req.cookies.token;
   if (!token) {
     return res.status(401).json({ msg: "No cookie found" });
