@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
-import Buy from "./components/Buy";
-import Sell from "./components/Sell";
+import AboutUs from "./pages/AboutUs";
+import Buy from "./pages/Buy";
+import Sell from "./pages/Sell";
 
 const App = () => {
   const [mode, setMode] = useState("light");
